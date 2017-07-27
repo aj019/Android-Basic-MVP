@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void updateNotesList() {
-
+        adapter.notifyDataSetChanged();
     }
 
     @Override

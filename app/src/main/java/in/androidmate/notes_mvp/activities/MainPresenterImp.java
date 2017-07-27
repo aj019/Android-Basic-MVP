@@ -14,6 +14,7 @@ import in.androidmate.notes_mvp.models.NotesData;
 public class MainPresenterImp implements MVP.MainPresenter {
 
     MVP.MainView mainView;
+    NotesData notesData = new NotesData();
 
     public MainPresenterImp(MVP.MainView mainView) {
         this.mainView = mainView;
@@ -22,13 +23,15 @@ public class MainPresenterImp implements MVP.MainPresenter {
 
     @Override
     public void showAllNotes() {
-        NotesData notesData = new NotesData();
+
         mainView.showResults(notesData.getNotes());
     }
 
     @Override
     public void addNote(EditText editText) {
         String note = editText.getText().toString();
+        notesData.addNote(note);
+        mainView.updateNotesList();
 
     }
 }
