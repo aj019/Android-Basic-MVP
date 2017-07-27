@@ -1,4 +1,4 @@
-package in.androidmate.notes_mvp.activities;
+package in.androidmate.notes_mvp.activities.main;
 
 import android.widget.EditText;
 

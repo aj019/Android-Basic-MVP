@@ -1,10 +1,8 @@
-package in.androidmate.notes_mvp.activities;
+package in.androidmate.notes_mvp.activities.main;
 
 import android.widget.EditText;
 
-import java.util.List;
-
-import in.androidmate.notes_mvp.activities.MVP;
+import in.androidmate.notes_mvp.activities.main.MVP;
 import in.androidmate.notes_mvp.models.NotesData;
 
 /**
