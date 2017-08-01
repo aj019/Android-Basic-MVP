@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import butterknife.BindView;
 import in.androidmate.notes_mvp.R;
 import in.androidmate.notes_mvp.adapters.BookAdapter;
 import in.androidmate.notes_mvp.models.Books;
@@ -18,12 +19,16 @@ public class BooksActivity extends Activity implements MVP_Books.BooksView{
 
     MVP_Books.BooksPresenter mPresenter;
     private String query = "Programming";
+    @BindView(R.id.buttonRefresh)
     FloatingActionButton fab;
+
+    @BindView(R.id.recycleView)
     RecyclerView rv;
+
+    @BindView(R.id.progress)
     ProgressBar pb;
 
     RecyclerView.Adapter adapter;
-    LinearLayoutManager llm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +49,6 @@ public class BooksActivity extends Activity implements MVP_Books.BooksView{
 
     private void setupViews() {
 
-        fab = (FloatingActionButton) findViewById(R.id.buttonRefresh);
-        pb = (ProgressBar) findViewById(R.id.progress);
-        rv = (RecyclerView) findViewById(R.id.recycleView);
         rv.setLayoutManager(new GridLayoutManager(this,2));
 
     }

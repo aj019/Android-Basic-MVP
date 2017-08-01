@@ -11,6 +11,8 @@ import android.widget.EditText;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import in.androidmate.notes_mvp.R;
 import in.androidmate.notes_mvp.activities.books.BooksActivity;
 import in.androidmate.notes_mvp.activities.main.MVP;
@@ -20,18 +22,25 @@ import in.androidmate.notes_mvp.adapters.NotesAdapter;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener,MVP.MainView {
 
-    private EditText etText;
-    private Button btClick;
-    private RecyclerView rvNotes;
+    @BindView(R.id.etText)
+    EditText etText;
+
+    @BindView(R.id.btClick)
+    Button btClick;
+
+    @BindView(R.id.rvNotes)
+    RecyclerView rvNotes;
+
     RecyclerView.Adapter adapter;
     LinearLayoutManager llm;
-
     MVP.MainPresenter mPresenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        ButterKnife.bind(this);
         setupMVP();
         setupViews();
 
@@ -47,11 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void setupViews() {
 
 
-        etText = (EditText) findViewById(R.id.etText);
-        rvNotes = (RecyclerView) findViewById(R.id.rvNotes);
-        btClick = (Button) findViewById(R.id.btClick);
         btClick.setOnClickListener(this);
-
         rvNotes = (RecyclerView) findViewById(R.id.rvNotes);
         llm = new LinearLayoutManager(this);
         rvNotes.setLayoutManager(llm);
